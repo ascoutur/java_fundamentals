@@ -1,43 +1,34 @@
-package labs_examples.fundamentals.labs;
+package labs_examples.datatypes_operators.labs;
 
 /**
- * Fundamentals Exercise 4: My Second Program
+ * Please demonstrate the use of all relational operators below. These include:
  *
- *      Write the necessary code to display declare and print each of Java's primitive data types.
- *      Please declare a single variable of each type, give it an appropriate valyue, then print that variable.
+ * less than, less than or equal to, greater than, greater than or equal to, and equal to
  *
  */
-
-public class Exercise_04 {
+class RelationalOperators {
 
     public static void main(String[] args) {
 
-        int i = 1;
-        System.out.println("int i is: " + i);
-
-        // write your code below
-
-        boolean bagFull = false;
-        System.out.println(bagFull);
-
-        char letter = 'A';
-        System.out.println(letter);
-
-        byte numb = 13;
-        System.out.println(numb);
-
-        short snumb = 15000;
-        System.out.println(snumb);
-
-        long lnumb = 3200000000l;
-        System.out.println(lnumb);
-
-        float flnumb = 320000000000.1f;
-        System.out.println(flnumb);
-
-        double dbnumb = 32.03;
-        System.out.println(dbnumb);
-
+        // example of "less than"
+        int a = 1;
+        int b = 2;
+        if (a < b){
+            System.out.println("a is less than b");
+        }
+        if (a <= b){
+            System.out.println("a is less than or equal to b");
+        }
+        if (a > b){
+            System.out.println("a is greater than b");
+        }
+        if (a >= b){
+            System.out.println("a is greater than or equal to b");
+        }
+        if (a == b){
+            System.out.println("a is equal to b");
+        }
     }
 
 }
+

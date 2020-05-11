@@ -1,38 +1,40 @@
-package labs_examples.fundamentals.labs;
-
+package labs_examples.datatypes_operators.labs;
 
 /**
- * Fundamentals Exercise 5: Working with Strings
+ * Please demonstrate the use of all logical operators below. These include:
  *
- *      Please follow the instructions in the comments below
+ * AND, short-circuit AND, OR, short-circuit OR, XOR, NOT
  *
  */
-
-public class Exercise_05 {
+class LogicalOperators {
 
     public static void main(String[] args) {
 
-        String str = "hello!";
-        // please declare an int variable below, and set it to the value of the length of "str"
-        int length = "hello".length();
-        System.out.println(length);
+        // example of "OR"
+        boolean a = true;
+        boolean b = false;
+        if (a | b){
+            System.out.println("a or b is true");
+        }
+        if (a || b){
+            System.out.println("a is true, but b is not");
+        }
+        if (a & b){
+            System.out.println("both a and b are true");
+        }
+        if (a && b){
+            System.out.println("a is true and so is b");
+        }
+        if (a ^ b){
+            System.out.println("only a is true here");
+        }
+        if (!a){
+            System.out.println("a is true");
+        }
 
-        String str2 = "hello";
-        // please initialize a boolean variable and test whether str is equal to str2
-        boolean equals = str.equals(str2);
-        System.out.println(equals);
-
-        // please concatenate str & str2 and set the result to a new String variable below
-        String str3 = str + " " + str2;
-        System.out.println(str3);
-
-        // please demonstrate the use of any other method that is available to us in the String class
-        // for example, replace(), substring(), contains(), indexOf() etc
-        int search = "hello".indexOf("e");
-        System.out.println(search);
 
 
     }
 
-
 }
+

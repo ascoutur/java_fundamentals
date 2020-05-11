@@ -1,29 +1,36 @@
-package labs_examples.fundamentals.labs;
+package labs_examples.datatypes_operators.labs;
 
 /**
- * Fundamentals Exercise 3: My First Program
+ * Please demonstrate the use of all arithmetic operators below. These include:
  *
- *      Write the necessary code to display the follow message to the console
- *
- *      Hello World!
- *      Check out my first program!
+ * addition, subtraction, multiplication, division and modulus
  *
  */
-
-public class Exercise_03 {
+class ArithmeticOperators {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello World!");
+        int a = 5;
+        a = a + 5;
+        System.out.println(a);
 
-        // write code to print out "Check out my first program!" below
-        System.out.println("Check out my first program!");
+        // Note: 'a' is now 10, not 5.
 
-        int i = 10;
-        int x = 13;
-        int z = i + x;
-        System.out.println(z);
+        int b;
+        b = a - 3;
+        System.out.println(b);
+
+        int c;
+        c = a / 2;
+        System.out.println(c);
+
+        int d;
+        d = a * 2;
+        System.out.println(d);
+
+        int e;
+        e = a % 2;
+        System.out.println(e);
     }
-
 
 }
