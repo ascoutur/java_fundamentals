@@ -1,33 +1,42 @@
-package labs_examples.datatypes_operators.labs;
+package labs_examples.arrays.labs;
+
+import java.util.Collections;
 
 /**
- * Fundamentals Exercise 4: Volume and Surface Area
+ *  Reversing an array in place
  *
- *      Write the necessary code to calculate the volume and surface area of a cylinder
- *      with a radius of 3.14 and a height of 5. Print out the result.
+ *
+ *      This is a very common interview challenge.
+ *
+ *      Using a for loop, please demonstrate how to reverse the nums[] array in place using only one extra variable. Please note,
+ *      you cannot use a second array and you cannot instantiate any new variables in the class below.
+ *
+ *      Hint: you have two index
  *
  */
-
 public class Exercise_06 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
+        int[] nums = {45, 87, 62, 99, 1, 42, 12};
 
-        // Formula for V is pi*r^2*h
-        // SA is 2pi*r*h + 2pi*r^2
-        // pi will be rounded to 2 digits for ease of use
-        // so, 3.14 only
+        int temp;
 
-        double r = 3.14;
-        int h = 5;
-        double pi = 3.14;
-
-        // V = Volume
-        double V = pi * (r * r) * h;
-        System.out.println(V);
-
-        // SA is Surface Area
-        double SA = (2 * pi * r * h) + (2 * V);
-        System.out.println(SA);
-
+        // Question: in the for loop below, why do we divide "nums.length" by 2?
+        for(int i = 0; i < nums.length / 2; i++){
+            // swap elements at indexes in array
+            // you have two indices readily available for you to use "i" (which increments) and "nums.length"
+            // you've also got this "temp" variable you can use to hold a value temporarily
+            temp = nums[i];
+            nums[i] = nums[nums.length - i - 1];
+            nums[nums.length - i - 1] = temp;
+            //the /2 comes in handy because you only need to traverse half of the
+            //elements, checking only up to /2.
+        }
+        System.out.print("Contents of array after for loop - ");
+        // print each element of the array to verify reverse order
+        for(int i : nums){
+            System.out.print(i + " ");
+        }
     }
+
 }

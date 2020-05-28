@@ -1,21 +1,14 @@
-package labs_examples.datatypes_operators.labs;
+package labs_examples.arrays.labs;
+
+import javax.swing.undo.CannotRedoException;
+import java.util.Arrays;
+import java.util.Scanner;
 
 /**
- * Data Types and Operators Exercise 2: Type conversion and casting
+ *  More labs_examples.arrays
  *
- *      Write the necessary code to demonstrate type conversion:
- *
- *      Widening:
- *      1. Declare and initialize an int with the value 10
- *      2. Declare a double and set it equal to the int
- *      3. Print out the double
- *
- *      Narrowing (with casting):
- *      1. Declare and initialize a new double with the value 10.5
- *      2. Declare a new int and set it equal to the double (make sure to cast the double to an int)
- *      3. Print out the int
- *
- *      Notice how each type is converted. In which direction is information lost?
+ *      Using the array below, take in a number from 1-10 from the user and print out the index of that
+ *      element.
  *
  */
 
@@ -23,20 +16,19 @@ public class Exercise_02 {
 
     public static void main(String[] args) {
 
-        int x = 10;
-        double d = x;
-        System.out.println(d);
+        int[] arrays = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        for(int array : arrays);{
+        }
+        // write code here
 
-        double D = 13.1;
-        int X = (int)D;
-        System.out.println(X);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a number 1-10, the system will then print out it's index within the array");
+        int i = scanner.nextInt();
 
-        // Information is lost when you cast a variable with a larger size into a smaller one (narrowing).
+        //I could not figure the rest of this out.
+
+
+
+
     }
 }
-
-
-
-
-
-

@@ -1,30 +1,28 @@
-package labs_examples.datatypes_operators.labs;
+package labs_examples.arrays.labs;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 /**
- * Fundamentals Exercise 5: Days to seconds
+ *  ArrayLists
  *
- *      Take in a number in days from the user between 1 and 1,000,000 and convert it to
- *      seconds.
- *
- *      NOTE: We will be using the Scanner class to collect user input. This is demonstrated below.
+ *      Please demonstrate how to create an ArrayList, populate an array list, access elements within an ArrayList.
+ *      Also take a moment to explore the many methods that are available to you when you use an ArrayList. By simply
+ *      typing the dot operator (".") after the ArrayList object that you create. You should see a menu pop up that
+ *      shows a list of methods.
  *
  */
-
 public class Exercise_07 {
-
     public static void main(String[] args) {
+        ArrayList<Integer> lists = new ArrayList<Integer>();
+        lists.add(1);
+        lists.add(2);
+        lists.add(3);
+        lists.add(4);
+        lists.remove(3);
 
-        // create scanner
-        Scanner scanner = new Scanner(System.in);
-        // prompt user
-        System.out.print("Enter a number in days between 1 and 1,000,000: ");
-        // assign input to variable as int
-        int days = scanner.nextInt();
-
-        // write completed code here
-        int sec = days * 86400;
-        System.out.println("This equates to " + sec + " seconds.");
+        for(Integer list : lists);{
+            System.out.println(lists);
+        }
     }
 }

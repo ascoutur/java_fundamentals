@@ -1,34 +1,24 @@
-package labs_examples.datatypes_operators.labs;
+package labs_examples.arrays.labs;
 
 /**
- * Please demonstrate the use of all relational operators below. These include:
+ *  Irregular Arrays
  *
- * less than, less than or equal to, greater than, greater than or equal to, and equal to
+ *      Create and populate a 2 dimensional irregular array of size and contents of your choosing. Using a nested
+ *      "for-each" loop, iterate and print out each element of the array.
  *
  */
-class RelationalOperators {
 
+public class Exercise_04 {
     public static void main(String[] args) {
+        int[][] tD = new int[4][4];
 
-        // example of "less than"
-        int a = 1;
-        int b = 2;
-        if (a < b){
-            System.out.println("a is less than b");
-        }
-        if (a <= b){
-            System.out.println("a is less than or equal to b");
-        }
-        if (a > b){
-            System.out.println("a is greater than b");
-        }
-        if (a >= b){
-            System.out.println("a is greater than or equal to b");
-        }
-        if (a == b){
-            System.out.println("a is equal to b");
+        for(int inner = 1; inner < tD.length; inner++){
+            for(int outter = 0; outter < tD[inner].length; outter++){
+                tD[inner][outter] = inner * 2;
+                System.out.print(tD[inner][outter]);
+            }
+            System.out.println();
         }
     }
 
 }
-

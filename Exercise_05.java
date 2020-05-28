@@ -1,40 +1,19 @@
-package labs_examples.datatypes_operators.labs;
+package labs_examples.arrays.labs;
 
 /**
- * Please demonstrate the use of all logical operators below. These include:
+ *  Traversing Arrays Backwards
  *
- * AND, short-circuit AND, OR, short-circuit OR, XOR, NOT
+ *      Please create and populate an array of your choosing. Then, please demonstrate how to print out every other
+ *      element in the array in reverse order.
  *
  */
-class LogicalOperators {
 
+public class Exercise_05 {
     public static void main(String[] args) {
-
-        // example of "OR"
-        boolean a = true;
-        boolean b = false;
-        if (a | b){
-            System.out.println("a or b is true");
+        int[] arrays = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+        for(int i = arrays.length-1; i >= 0; i-=2){
+            System.out.println(i);
         }
-        if (a || b){
-            System.out.println("a is true, but b is not");
-        }
-        if (a & b){
-            System.out.println("both a and b are true");
-        }
-        if (a && b){
-            System.out.println("a is true and so is b");
-        }
-        if (a ^ b){
-            System.out.println("only a is true here");
-        }
-        if (!a){
-            System.out.println("a is true");
-        }
-
-
-
     }
 
 }
-

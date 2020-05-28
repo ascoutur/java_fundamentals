@@ -1,36 +1,32 @@
-package labs_examples.datatypes_operators.labs;
+package labs_examples.arrays.labs;
 
 /**
- * Please demonstrate the use of all arithmetic operators below. These include:
+ *  2D Array
  *
- * addition, subtraction, multiplication, division and modulus
+ *      Creat and populate a 5x5 2D array with multiples of 3, starting with 3. Once populated, print out the results.
+ *
+ *      The output should look something like this:
+ *
+ *      3 6 9 12 15
+ *      18 21 24 27 30
+ *      ...
+ *      ...
+ *      ...
  *
  */
-class ArithmeticOperators {
+
+public class Exercise_03 {
 
     public static void main(String[] args) {
-
-        int a = 5;
-        a = a + 5;
-        System.out.println(a);
-
-        // Note: 'a' is now 10, not 5.
-
-        int b;
-        b = a - 3;
-        System.out.println(b);
-
-        int c;
-        c = a / 2;
-        System.out.println(c);
-
-        int d;
-        d = a * 2;
-        System.out.println(d);
-
-        int e;
-        e = a % 2;
-        System.out.println(e);
+        int[][] twoDArray = new int[5][5];
+        // use 2 for loops to populate the 2d array
+        // first for loop
+        for (int innerLoop = 1; innerLoop < twoDArray.length; innerLoop++){
+            for (int outerLoop = 0; outerLoop < twoDArray[innerLoop].length; outerLoop++){
+                twoDArray[innerLoop][outerLoop] = innerLoop * 3;
+                System.out.print(twoDArray[outerLoop][innerLoop]);
+            }
+            System.out.println();
+        }
     }
-
 }
