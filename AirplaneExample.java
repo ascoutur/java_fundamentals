@@ -2,91 +2,117 @@ package labs_examples.objects_classes_methods.labs.objects;
 
 public class AirplaneExample {
     public static void main(String[] args) {
+        
+        Engines myEngines = new Engines();
+        myEngines.setHorsePower(400);
+        Radio myRadio = new Radio();
+        myRadio.setBrand("Yaesu FTA750L");
+        Seats mySeats = new Seats();
+        mySeats.setCount(200);
+        Airplane myAirplane = new Airplane(myEngines, myRadio, mySeats);
 
-        Engines myEngine = new Engines(400);
-        Radio myRadio = new Radio("Yaesu FTA750L");
-        Seats mySeats = new Seats(200);
-        Airplane myAirplane = new Airplane(myEngine, myRadio, mySeats);
-
-        System.out.println("I pilot an airplane with two " + myAirplane.engines.horsePower + " horsepower engines. "
-         + "I use a handheld radio called the " + myAirplane.radio.brand + ", and I can carry about " + myAirplane.seats.count
+        System.out.println("I pilot an airplane with two " + myAirplane.myEngines.getHorsePower() + " horsepower engines. "
+         + "I use a handheld radio called the " + myAirplane.myRadio.getBrand() + ", and I can carry about " + myAirplane.mySeats.getCount()
          + " passengers.");
 
     }
+
 }
 
 class Engines{
 
-    double horsePower;
+    private double horsePower;
 
-    public Engines(double horsePower){
+    public double getHorsePower(){
+        return horsePower;
+    }
+    public void setHorsePower(double hP){
+        this.horsePower = hP;
 
-        this.horsePower = horsePower;
+    }
 
         //400hp per engine
-    }
+
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Engine{" + "horsePower = " + horsePower + '}';
     }
 }
 
 class Radio{
 
-    String brand;
+    private String brand;
 
-    public Radio(String brand){
-
-        this.brand = brand;
+    public String getBrand(){
+        return brand;
+    }
+     public void setBrand(String b){
+        this.brand = b;
+     }
 
         //Yaesu FTA750L
-    }
+
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Radio{" + "brand = " + brand + "}";
     }
 }
 
 class Seats{
 
-    double count;
+    private double count;
 
-    public Seats(double count){
-
-        this.count = count;
+    public double getCount(){
+        return count;
+    }
+    public void setCount(double cnt){
+        this.count = cnt;
+    }
 
         //200 seats needed
-    }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Seats{" + "count = " + count + "}";
     }
 }
 
-class Airplane{
+class Airplane {
 
-    Engines engines;
+    Engines myEngines;
 
-    Radio radio;
+    Radio myRadio;
 
-    Seats seats;
+    Seats mySeats;
 
-    double fuelCapacity;
+    private double fuelCapacity;
 
-    double currentFuelLevel;
+    private double currentFuelLevel;
 
-    public Airplane(Engines engines, Radio radio, Seats seats){
-
-        this.engines = engines;
-        this.radio = radio;
-        this.seats = seats;
+    public Airplane(Engines myEngines, Radio myRadio, Seats mySeats){
+        this.myEngines = myEngines;
+        this.myRadio = myRadio;
+        this.mySeats = mySeats;
     }
+
+    public double getFuelCapacity(){
+       return fuelCapacity;
+   }
+   public void setFuelCapacity(double fc){
+       this.fuelCapacity = fc;
+   }
+   public double getCurrentFuelLevel(){
+       return fuelCapacity;
+   }
+   public void setCurrentFuelLevel(double cfl){
+       this.currentFuelLevel = cfl;
+   }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Airplane{" + "myEngine, myRadio, mySeats = " + myEngines + ", " +
+                myRadio + ", " + mySeats + "}";
     }
 }
