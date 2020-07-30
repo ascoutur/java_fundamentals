@@ -1,19 +1,21 @@
-package labs_examples.arrays.labs;
+package labs_examples.exception_handling.labs;
 
 /**
- *  Traversing Arrays Backwards
+ * Exception Handling Exercise 5:
  *
- *      Please create and populate an array of your choosing. Then, please demonstrate how to print out every other
- *      element in the array in reverse order.
+ *      Demonstrate how to throw an exception.
  *
  */
-
-public class Exercise_05 {
+class ThrowEx{
     public static void main(String[] args) {
-        int[] arrays = {0, 1, 2, 3, 4, 5, 6, 7, 8};
-        for(int i = arrays.length-1; i >= 0; i-=2){
-            System.out.println(i);
+        try{
+            Divide(5,1);
+        }catch(ArithmeticException aexc){
+            System.out.println("Cannot divide by zero.");
         }
     }
-
+    public static void Divide(int a, int b) throws ArithmeticException{
+        int c = a/b;
+        System.out.println(c);
+    }
 }

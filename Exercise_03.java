@@ -1,32 +1,21 @@
-package labs_examples.arrays.labs;
+package labs_examples.exception_handling.labs;
 
 /**
- *  2D Array
+ * Exception Handling Exercise 3:
  *
- *      Creat and populate a 5x5 2D array with multiples of 3, starting with 3. Once populated, print out the results.
- *
- *      The output should look something like this:
- *
- *      3 6 9 12 15
- *      18 21 24 27 30
- *      ...
- *      ...
- *      ...
+ *      Demonstrate a try/catch/finally block.
  *
  */
-
-public class Exercise_03 {
-
+class Example3{
     public static void main(String[] args) {
-        int[][] twoDArray = new int[5][5];
-        // use 2 for loops to populate the 2d array
-        // first for loop
-        for (int innerLoop = 1; innerLoop < twoDArray.length; innerLoop++){
-            for (int outerLoop = 0; outerLoop < twoDArray[innerLoop].length; outerLoop++){
-                twoDArray[innerLoop][outerLoop] = innerLoop * 3;
-                System.out.print(twoDArray[outerLoop][innerLoop]);
-            }
-            System.out.println();
+        String[] str = {"Bye", "What?", "Why?"};
+
+        try{
+            System.out.println("When greeting someone you say" + str[3]);
+        }catch(ArrayIndexOutOfBoundsException aexc){
+            System.out.println("Exception caught, this element does not exist.");
+        }finally{
+            System.out.println("When greeting someone you say Hi.");
         }
     }
 }

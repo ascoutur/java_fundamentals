@@ -1,42 +1,37 @@
-package labs_examples.arrays.labs;
-
-import java.util.Collections;
+package labs_examples.exception_handling.labs;
 
 /**
- *  Reversing an array in place
+ * Exception Handling Exercise 6:
  *
- *
- *      This is a very common interview challenge.
- *
- *      Using a for loop, please demonstrate how to reverse the nums[] array in place using only one extra variable. Please note,
- *      you cannot use a second array and you cannot instantiate any new variables in the class below.
- *
- *      Hint: you have two index
+ *      Demonstrate throwing an exception in one method and catching it in another method.
  *
  */
-public class Exercise_06 {
-
-    public static void main(String[] args){
-        int[] nums = {45, 87, 62, 99, 1, 42, 12};
-
-        int temp;
-
-        // Question: in the for loop below, why do we divide "nums.length" by 2?
-        for(int i = 0; i < nums.length / 2; i++){
-            // swap elements at indexes in array
-            // you have two indices readily available for you to use "i" (which increments) and "nums.length"
-            // you've also got this "temp" variable you can use to hold a value temporarily
-            temp = nums[i];
-            nums[i] = nums[nums.length - i - 1];
-            nums[nums.length - i - 1] = temp;
-            //the /2 comes in handy because you only need to traverse half of the
-            //elements, checking only up to /2.
-        }
-        System.out.print("Contents of array after for loop - ");
-        // print each element of the array to verify reverse order
-        for(int i : nums){
-            System.out.print(i + " ");
+class reThrow{
+    public static void main(String[] args) {
+        try{
+            //Call the Caller method and finally handle the exception here.
+            Caller();
+        }catch(ArrayIndexOutOfBoundsException aaiexc){
+            System.out.println("Exception from Caller caught and dealt with here in main.");
         }
     }
 
+    public static void Caller() throws ArrayIndexOutOfBoundsException{
+        //Call the method here, and throw the exception back up to main.
+        sayHi();
+    }
+
+    public static void sayHi() throws ArrayIndexOutOfBoundsException{
+        //Choose from array wordbank to say Hi, however the option is not there. This means an error will occur.
+        String[] str = {"Bye"};
+        try{
+            System.out.println(str[1]);
+        }catch (ArrayIndexOutOfBoundsException aiexc){
+            System.out.println("'Hi' is not present in this array.");
+            System.out.println("...Now re-throwing this exception to the 'Caller' method.");
+            throw aiexc;
+            //The line above is what is responsible for "re-throwing" the error to the "caller" method.
+        }
+
+    }
 }

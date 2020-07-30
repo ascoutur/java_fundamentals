@@ -1,34 +1,25 @@
-package labs_examples.arrays.labs;
-
-import javax.swing.undo.CannotRedoException;
-import java.util.Arrays;
-import java.util.Scanner;
+package labs_examples.exception_handling.labs;
 
 /**
- *  More labs_examples.arrays
+ * Exception Handling Exercise 2:
  *
- *      Using the array below, take in a number from 1-10 from the user and print out the index of that
- *      element.
+ *      Demonstrate a try/catch with multiple catch statements.
  *
  */
-
-public class Exercise_02 {
-
+class Example2{
     public static void main(String[] args) {
+        int[] nums = {2, 1, 0, 3};
 
-        int[] arrays = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-        for(int array : arrays);{
+        try{
+            System.out.println(nums[0]/nums[2]);
+            System.out.println(nums[4]);
+        }catch(ArithmeticException aexc){
+            System.out.println("Exception caught cannot divide by 0.");
+        }catch(ArrayIndexOutOfBoundsException aexcs){
+            System.out.println("This element is not within the array.");
         }
-        // write code here
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a number 1-10, the system will then print out it's index within the array");
-        int i = scanner.nextInt();
-
-        //I could not figure the rest of this out.
-
-
-
 
     }
 }
+
+

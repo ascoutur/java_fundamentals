@@ -1,29 +1,22 @@
-package labs_examples.objects_classes_methods.labs.methods;
+package labs_examples.exception_handling.labs;
 
 /**
- * Create a recursive method named factorial that will return the factorial of any number passed to it.
+ * Exception Handling Exercise 4:
  *
- * For instance, after creatin the factorial method, uncomment the two lines in the main() method. When you run
- * it, it should print 120. It should also work for any ther number you pass it.
+ *      Demonstrate a nested try/catch.
  *
  */
-public class Exercise_04 {
-
+class Example4{
     public static void main(String[] args) {
-        int x = factorial(5);
-        System.out.println(x);
+        int[] num = {0, 1, 2, 3};
+        try{
+            System.out.println(num[1]/num[0]);
+        }catch(ArithmeticException aexc){
+            System.out.println("Exception caught, cannot divide by zero.");
+        }try{
+            System.out.println(num[4]);
+        }catch(ArrayIndexOutOfBoundsException aiexc){
+            System.out.println("This element does not exist within the array.");
+        }
     }
-    public static int factorial(int x){
-        int total;
-        if (x ==1)
-            return 1;
-            total = factorial(x - 1) * x;
-            return total;
-
-    }
-
-
-
-
 }
-

@@ -1,28 +1,40 @@
-package labs_examples.arrays.labs;
+package labs_examples.exception_handling.labs;
 
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 /**
- *  ArrayLists
+ * Exception Handling Exercise 7:
  *
- *      Please demonstrate how to create an ArrayList, populate an array list, access elements within an ArrayList.
- *      Also take a moment to explore the many methods that are available to you when you use an ArrayList. By simply
- *      typing the dot operator (".") after the ArrayList object that you create. You should see a menu pop up that
- *      shows a list of methods.
- *
+ *      1) Create a custom exception.
+ *      2) Demonstrate a method throwing your custom exception.
  */
-public class Exercise_07 {
-    public static void main(String[] args) {
-        ArrayList<Integer> lists = new ArrayList<Integer>();
-        lists.add(1);
-        lists.add(2);
-        lists.add(3);
-        lists.add(4);
-        lists.remove(3);
+class CandyException extends Exception{
+    @Override
+    public String toString(){
+        return "Okay, have a great day then!";
 
-        for(Integer list : lists);{
-            System.out.println(lists);
-        }
     }
 }
+class Caller{
+    public static void main(String[] args) {
+        try{
+            CandyPurchase();
+        }catch(CandyException cexc){
+            System.out.println(cexc.toString());
+        }
+
+    }
+    public static void CandyPurchase() throws CandyException{
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Would you like to purchase either chocolate or twizzlers?");
+        String response = scanner.next();
+
+        if(response.equalsIgnoreCase("no")){
+            throw new CandyException();
+        }
+        System.out.println("Great, take your pick.");
+    }
+}
+
+
