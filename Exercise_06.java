@@ -1,37 +1,55 @@
-package labs_examples.exception_handling.labs;
+package labs_examples.multi_threading.labs;
 
 /**
- * Exception Handling Exercise 6:
+ * Multithreading Exercise 6:
  *
- *      Demonstrate throwing an exception in one method and catching it in another method.
- *
+ *      Write a program that will print 1-100 sequentially from at least two distinct threads. For instance, thread1 will
+ *      print "1", then thread2 will print "2", then thread1 will print "3", then thread2 will print "4" and so on.
  */
-class reThrow{
+class TheController{
+
+    //final number in sequence
+    final static int Max = 101;
+
     public static void main(String[] args) {
-        try{
-            //Call the Caller method and finally handle the exception here.
-            Caller();
-        }catch(ArrayIndexOutOfBoundsException aaiexc){
-            System.out.println("Exception from Caller caught and dealt with here in main.");
-        }
+        //Object that is shared
+        TheController obj = new TheController();
+
+        //Threader th1 = new Threader(new TheController(digit, 1), 99);
+        //Threader th2 = new Threader(new TheController(), 100);
+        //th1.run();
+        //th2.run();
+        Thread th3 = new Thread(new Threader(obj,0), "Thread one:");
+        Thread th4 = new Thread(new Threader(obj,1), "Thread two:");
+        Thread th5 = new Thread(new Threader(obj,2), "Thread three:");
+        th3.start();
+        th4.start();
+        th5.start();
+    }
+}
+
+class Threader implements Runnable{
+    //Thread thread;
+    //variable that will be incremented:
+    TheController obj;
+    int threadNum;
+    static int starter = 0;
+
+    Threader(TheController obj, int end){
+        this.obj = obj;
+        this.threadNum = end;
     }
 
-    public static void Caller() throws ArrayIndexOutOfBoundsException{
-        //Call the method here, and throw the exception back up to main.
-        sayHi();
-    }
 
-    public static void sayHi() throws ArrayIndexOutOfBoundsException{
-        //Choose from array wordbank to say Hi, however the option is not there. This means an error will occur.
-        String[] str = {"Bye"};
-        try{
-            System.out.println(str[1]);
-        }catch (ArrayIndexOutOfBoundsException aiexc){
-            System.out.println("'Hi' is not present in this array.");
-            System.out.println("...Now re-throwing this exception to the 'Caller' method.");
-            throw aiexc;
-            //The line above is what is responsible for "re-throwing" the error to the "caller" method.
+    @Override
+    public void run(){
+        while(starter < TheController.Max){
+            synchronized (obj){
+                if(starter % 3 == threadNum && starter < TheController.Max){
+                    System.out.println(Thread.currentThread().getName() +
+                            " " + starter++);
+                }
+            }
         }
-
     }
 }

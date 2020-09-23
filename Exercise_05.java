@@ -1,21 +1,39 @@
-package labs_examples.exception_handling.labs;
+package labs_examples.multi_threading.labs;
 
 /**
- * Exception Handling Exercise 5:
+ * Multithreading Exercise 5:
  *
- *      Demonstrate how to throw an exception.
- *
+ *      Demonstrate the use of a wait() and notify()
  */
-class ThrowEx{
-    public static void main(String[] args) {
-        try{
-            Divide(5,1);
-        }catch(ArithmeticException aexc){
-            System.out.println("Cannot divide by zero.");
+
+class Controller{
+    public static void main(String[] args) throws InterruptedException {
+        //allows for the method call
+        TheColor col = new TheColor();
+        col.nameColor();
+    }
+}
+
+class TheColor {
+    //true means the color is purple and the code will run.
+    //If this boolean was false nothing will be printed to the console, it will run indefinitely for some reason.
+    private boolean isPurple = true;
+
+    public void nameColor() throws InterruptedException {
+        synchronized (this) {
+            while (!isPurple) {
+               wait();
+            }
+            System.out.println("The color is purple.");
+        }
+        
+
+    }
+    public void guesser(){
+        synchronized (this){
+            this.isPurple = true;
+            notify();
         }
     }
-    public static void Divide(int a, int b) throws ArithmeticException{
-        int c = a/b;
-        System.out.println(c);
-    }
+
 }

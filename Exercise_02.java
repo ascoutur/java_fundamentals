@@ -1,25 +1,30 @@
-package labs_examples.exception_handling.labs;
+package labs_examples.multi_threading.labs;
 
 /**
- * Exception Handling Exercise 2:
+ * Multithreading Exercise 2:
  *
- *      Demonstrate a try/catch with multiple catch statements.
- *
+ *      Create an application that creates a Thread using the Thread class
  */
-class Example2{
+class ThreadEx2{
     public static void main(String[] args) {
-        int[] nums = {2, 1, 0, 3};
+        MyThread2 MT1 = new MyThread2("Hello");
+        MyThread2 MT2 = new MyThread2("Hello2");
+        MyThread2 MT3 = new MyThread2("Hello3");
 
-        try{
-            System.out.println(nums[0]/nums[2]);
-            System.out.println(nums[4]);
-        }catch(ArithmeticException aexc){
-            System.out.println("Exception caught cannot divide by 0.");
-        }catch(ArrayIndexOutOfBoundsException aexcs){
-            System.out.println("This element is not within the array.");
-        }
-
+        //**Setting MT2 as top priority**
+        MT2.setPriority(Thread.MAX_PRIORITY);
     }
 }
 
+class MyThread2 extends Thread{
+    MyThread2(String name){
+        //Parent class constructor
+        super(name);
+        start();
+    }
+    //Did not use a try catch again because I used a simple SOUT, no loops.
+    public void run(){
+        System.out.println(currentThread().getName());
 
+    }
+}
